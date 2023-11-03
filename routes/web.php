@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,18 +31,9 @@ Route::get('/about', function () {
 
 
 Route::get('/posts', function () {
-    $blog_posts = [
-        [
-            "title" => "Judul Post Pertama",
-            "slug" => "Judul-Post Pertama",
-            "author" => "Wildan",
-            "body" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur corrupti maxime, quibusdam quidem, non temporibus sint consequatur repellat assumenda laborum quasi explicabo officiis quis iusto? Odit doloremque aperiam neque nulla."
-        ],
-    ];
-
     return view('Posts', [
         "title" => "Post",
-        "posts" => $blog_posts
+        "posts" => Post::all()
     ]);
 });
 
@@ -51,25 +43,8 @@ Route::get('/posts', function () {
 
 //Halaman Single Post
 Route::get('posts/{slug}', function ($slug) {
-    $blog_posts = [
-        [
-            "title" => "Judul Post Pertama",
-            "slug" => "Judul-Post Pertama",
-            "author" => "Wildan",
-            "body" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur corrupti maxime, quibusdam quidem, non temporibus sint consequatur repellat assumenda laborum quasi explicabo officiis quis iusto? Odit doloremque aperiam neque nulla."
-        ],
-    ];
-
-    $new_post = [];
-
-    foreach ($blog_posts as $post) {
-        if ($post["slug"] === $slug) {
-            $new_post = $post;
-        }
-    }
-
     return view('post', [
         "title" => "Single Post",
-        "post" => $new_post
+        "post" => Post::find($slug),
     ]);
 });
