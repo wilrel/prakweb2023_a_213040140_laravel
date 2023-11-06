@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
 return [
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -14,7 +15,9 @@ return [
     | any other location as required by the application or its packages.
     |
     */
+
     'name' => env('APP_NAME', 'Laravel'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -25,7 +28,9 @@ return [
     | services the application utilizes. Set this in your ".env" file.
     |
     */
+
     'env' => env('APP_ENV', 'production'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Debug Mode
@@ -36,7 +41,9 @@ return [
     | application. If disabled, a simple generic error page is shown.
     |
     */
+
     'debug' => (bool) env('APP_DEBUG', false),
+
     /*
     |--------------------------------------------------------------------------
     | Application URL
@@ -47,8 +54,11 @@ return [
     | your application so that it is used when running Artisan tasks.
     |
     */
+
     'url' => env('APP_URL', 'http://localhost'),
+
     'asset_url' => env('ASSET_URL'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -59,6 +69,7 @@ return [
     | ahead and set this to a sensible default for you out of the box.
     |
     */
+
     'timezone' => 'UTC',
 
     /*
@@ -71,7 +82,9 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
+
     'locale' => 'en',
+
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
@@ -82,6 +95,7 @@ return [
     | the language folders that are provided through your application.
     |
     */
+
     'fallback_locale' => 'en',
 
     /*
@@ -94,7 +108,9 @@ return [
     | localized telephone numbers, street address information and more.
     |
     */
-    'faker_locale' => 'en_US',
+
+    'faker_locale' => env('FAKER_LOCALE', 'en_US'),
+
     /*
     |--------------------------------------------------------------------------
     | Encryption Key
@@ -105,8 +121,11 @@ return [
     | will not be safe. Please do this before deploying an application!
     |
     */
+
     'key' => env('APP_KEY'),
+
     'cipher' => 'AES-256-CBC',
+
     /*
     |--------------------------------------------------------------------------
     | Maintenance Mode Driver
@@ -119,10 +138,12 @@ return [
     | Supported drivers: "file", "cache"
     |
     */
+
     'maintenance' => [
         'driver' => 'file',
         // 'store'  => 'redis',
     ],
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -133,10 +154,12 @@ return [
     | this array to grant expanded functionality to your applications.
     |
     */
+
     'providers' => ServiceProvider::defaultProviders()->merge([
         /*
          * Package Service Providers...
          */
+
         /*
          * Application Service Providers...
          */
@@ -146,6 +169,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
     ])->toArray(),
+
     /*
     |--------------------------------------------------------------------------
     | Class Aliases
@@ -156,7 +180,9 @@ return [
     | the aliases are "lazy" loaded so they don't hinder performance.
     |
     */
+
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
+
 ];
