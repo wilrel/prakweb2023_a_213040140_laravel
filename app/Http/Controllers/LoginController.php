@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    //Method Index
     public function index()
     {
         return view('login.index', [
@@ -27,7 +28,7 @@ class LoginController extends Controller
             return redirect()->intended('/dashboard');
         }
 
-        return back()->with('loginError', 'Login failed!');
+        return back()->with('loginError', 'Login Failed!');
     }
 
     public function logout()
